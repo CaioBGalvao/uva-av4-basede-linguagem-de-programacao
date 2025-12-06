@@ -1,0 +1,18 @@
+=================================================
+                 FLAVIOZON - NOTA FISCAL         
+=================================================
+Data da Compra: 05/12/2025 22:41
+Previsao Entrega: 10/12/2025
+Destino: Sudeste
+-------------------------------------------------
+ITENS:
+
+[004] Monitor 24pol        | Qtd: 1 | R$ 1200.00
+[002] Pato de Borracha     | Qtd: 2000 | R$ 31800.00
+[005] Teclado Mecânico    | Qtd: 1 | R$ 350.00
+-------------------------------------------------
+Subtotal Itens: R$ 33350.00
+Frete:          R$ 45.00
+TOTAL FINAL:    R$ 33395.00
+=================================================
+Obrigado pela preferencia!
