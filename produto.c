@@ -88,10 +88,12 @@ void listarProdutos() {
 //------------------------------------------------------
 
 Produto buscarProdutoID(int id) {
+    Produto erro;
+    erro.id = -1;
     for (int i = 0 ; i < total_produtos ; i++) {
         if (catalogo[i].id == id) {
             return catalogo[i];
         }
     }
-
+    return erro;
 }
