@@ -12,6 +12,21 @@ O sistema simula o fluxo de compras de uma loja ("Fláviozon"), desde a seleçã
 
 Para garantir a organização e permitir o trabalho em paralelo, o sistema foi dividido em **5 módulos independentes**, conectados por um arquivo de cabeçalho comum (`flaviozon.h`).
 
+## 🔗 Recursos de Estudo e Documentação
+
+Para quem está começando ou precisa relembrar conceitos de C, aqui estão links essenciais:
+
+* **Tutoriais Básicos**:
+  * [W3Schools: Tutorial de C](https://www.w3schools.com/c/index.php) (Excelente para iniciantes)
+  * [GeeksforGeeks: C Programming](https://www.geeksforgeeks.org/c-programming-language/) (Muito completo)
+  * [Cprogramming.com](https://www.cprogramming.com/)
+
+* **Referências de Funções**:
+  * [CPPReference (C headers)](https://en.cppreference.com/w/c/header)
+  * `stdio.h` (printf, scanf): [Detalhes](https://cplusplus.com/reference/cstdio/)
+  * `string.h` (strcpy, strcmp): [Detalhes](https://cplusplus.com/reference/cstring/)
+  * `stdlib.h` (malloc, rand): [Detalhes](https://cplusplus.com/reference/cstdlib/)
+
 ### Estrutura de Arquivos
 
 ```text
@@ -66,6 +81,8 @@ Cada integrante é responsável por implementar um dos módulos abaixo. As assin
 * Capturar a entrada do usuário e chamar as funções dos outros módulos.
 * Tratar erros básicos de entrada.
 
+> **Dica de Implementação**: Use um loop `do-while` para manter o menu rodando até a pessoa escolher "Sair". Lembre-se de limpar o "buffer" do teclado após ler números com `scanf` antes de ler strings, para evitar pular leituras.
+
 ### 2. Módulo Produtos (`produtos.c`)
 
 **Responsabilidade**: Banco de dados (Simulado) e Exibição.
@@ -74,6 +91,8 @@ Cada integrante é responsável por implementar um dos módulos abaixo. As assin
 * **Listagem**: Função para imprimir todos os produtos formatados (Nome | Preço | ID).
 * **Busca**: Função que recebe um ID e retorna os dados do produto (ou erro se não existir).
 
+> **Dica de Implementação**: Você não precisa de banco de dados real. Crie um vetor global `static Produto catalogo[6]` dentro do arquivo `produtos.c` e preencha os dados manualmente linha por linha na função de inicialização.
+
 ### 3. Módulo Carrinho (`carrinho.c`)
 
 **Responsabilidade**: Lógica de sessão de compra.
@@ -81,6 +100,8 @@ Cada integrante é responsável por implementar um dos módulos abaixo. As assin
 * **Adicionar**: Recebe um produto e quantidade. Se o produto já existir no carrinho, apenas incrementa a quantidade. Se não, adiciona na próxima posição livre.
 * **Remover (Opcional)**: Remove um item do array.
 * **Totalização**: Percorre o array calculando a soma `(preço * quantidade)` de todos os itens.
+
+> **Dica de Implementação**: O carrinho tem um contador `qtdProdutos`. Ao adicionar um item novo, você o coloca na posição `itens[qtdProdutos]` e depois aumenta esse contador (`qtdProdutos++`). Cuidado para não estourar o limite `MAX_ITENS`.
 
 ### 4. Módulo Frete (`frete.c`)
 
@@ -110,6 +131,8 @@ Cada integrante é responsável por implementar um dos módulos abaixo. As assin
   * Local de Entrega (Região).
   * Preço do Frete, Preço Total.
   * Data/Hora da Compra e Data Prevista de Entrega.
+
+> **Dica de Implementação**: Pesquise sobre `fopen` (modo "w" para escrita), `fprintf` (funciona igual ao `printf` mas escreve no arquivo) e `fclose`. Não esqueça de fechar o arquivo no final!
 
 ---
 
