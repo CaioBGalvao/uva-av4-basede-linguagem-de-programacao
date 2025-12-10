@@ -117,7 +117,6 @@ float calcularPesoTotalCarrinho(Carrinho c) {
 // Atualiza quantidade ou remove se for zero
 //-------------------------------------------------------
 int atualizarQuantidadeCarrinho(Carrinho *c, int idProduto, int novaQuantidade) {
-    int i, j;
 
     for (int i = 0; i < c->qtdProdutos; i++) {
         // Procura o produto pelo ID
@@ -126,7 +125,7 @@ int atualizarQuantidadeCarrinho(Carrinho *c, int idProduto, int novaQuantidade) 
             // Se for zero ou menos, remove do array
             if (novaQuantidade <= 0) {
                 // Puxa os itens da frente para tras para tapar o buraco
-                for (j = i; j < c->qtdProdutos - 1; j++) {
+                for (int j = i; j < c->qtdProdutos - 1; j++) {
                     c->itens[j] = c->itens[j + 1];
                 }
                 c->qtdProdutos--; // Diminui o tamanho do carrinho
