@@ -119,7 +119,7 @@ float calcularPesoTotalCarrinho(Carrinho c) {
 int atualizarQuantidadeCarrinho(Carrinho *c, int idProduto, int novaQuantidade) {
     int i, j;
 
-    for (i = 0; i < c->qtdProdutos; i++) {
+    for (int i = 0; i < c->qtdProdutos; i++) {
         // Procura o produto pelo ID
         if (c->itens[i].produto.id == idProduto) {
             
