@@ -26,52 +26,122 @@ int main()
         printf("4 - Gerar Relatorio\n");
         printf("5 - Finalizar Pedido\n");
 
-        NewFunction(); // "Escolha uma opção:"
+        NewFunction(); // escolha uma opção
 
         if (scanf("%d", &opcao) != 1)
         {
-        
-            int c;
-            while ((c = getchar()) != '\n' && c != EOF)
-                ;
-            opcao = 0;
-            printf("Entrada invalida. Tente novamente.\n");
+
+        limparBufferEntrada();
+            printf("Entrada inválida!\n");
             continue;
-        }
+        } 
 
         switch (opcao)
         {
         case 1:
-            iniciarCompra();      // produto.c
+            listarprodutos();      // produto.c
             break;
 
-        case 2:
-            mostrarCarrinho();    // carrinho.c
+           case 2:
+           {
+
+             int id, quantidade;
+
+            printf("\nDigite o ID do produto: ");
+            if (scanf("%d", &id) != 1)
+            {
+                limparBufferEntrada();
+                printf("Entrada inválida!\n");
+                break;
+            }
+
+            printf("Digite a quantidade: ");
+            if (scanf("%d", &quantidade) != 1)
+            {
+                limparBufferEntrada();
+                printf("Entrada inválida!\n");
+                break;
+            }
+
+            Produto p = buscarProduto(id);
+
+            if (p.id == -1)
+            {
+                printf("Produto não encontrado!\n");
+            }
+            else
+            {
+             int ok = adicionarAoCarrinho(&meuCarrinho, p, quantidade);
+                if (ok)
+                    printf("Produto adicionado ao carrinho!\n");
+                else
+                    printf("Carrinho cheio! Não foi possível adicionar.\n");
+            }
+        }
+        break;
+
+        case 3: // ver carrinho
+          visualizarCarrinho(meuCarrinho);
             break;
 
-        case 3:
-            calcularFrete();      // frete.c
-            break;
+        case 4:             // finalizar a compra
+         {
+            if (meuCarrinho.qtdProdutos == 0)
+            {
+                printf("\nSeu carrinho está vazio!\n");
+                break;
+            }
 
-        case 4:
-            gerarRelatorio();     // relatorio.c
-            break;
+            int regiao;
 
-        case 5:
-            finalizarPedido();    // relatorio.c ou outro arquivo
-            printf("\nObrigado por comprar no FlavioZON!\n");
-            break;
+            printf("\nSelecione sua região para calcular o frete:\n");
+            printf("1 - Sul\n");
+            printf("2 - Sudeste\n");
+            printf("3 - Norte\n");
+            printf("4 - Nordeste\n");
+            printf("Digite a opcao: ");
+
+
+             if (scanf("%d", &regiaoOpcao) != 1 || regiaoOpcao < 1 || regiaoOpcao > 4)
+            {
+                printf("Região inválida!\n");
+                limparBufferEntrada();
+                break;
+            }
+
+            regiao = (Regiao)regiaoOpcao;
+
+            float pesoTotal = calcularPesoTotalCarrinho(meuCarrinho);
+            float frete = calcularFrete(regiao, pesoTotal);
+            float totalItens = calcularTotalCarrinho(meuCarrinho);
+            float totalFinal = totalItens + frete;
+
+            printf("\n========== RESUMO DA COMPRA ==========\n");
+            printf("Subtotal dos produtos: R$ %.2f\n", totalItens);
+            printf("Frete (%s): R$ %.2f\n", obterNomeRegiao(regiao), frete);
+            printf("TOTAL FINAL: R$ %.2f\n", totalFinal);
+
+            int confirmar;
+            printf("\nDeseja finalizar a compra?\n1 - Sim\n2 - Não\nEscolha: ");
+            scanf("%d", &confirmar);
+
+            if (confirmar == 1)
+            {
+                gerarNotaFiscal(meuCarrinho, regiao, frete, totalFinal);
+                inicializarCarrinho(&meuCarrinho); // limpa carrinho
+                printf("\nCompra finalizada com sucesso!\n");
+            }
+            else
+            {
+                printf("\nCompra cancelada.\n");
+            }
+        }
+        break;
 
         default:
-            printf("Opcao invalida! Tente novamente.\n");
+            printf("Opcao inválida! Tente novamente.\n");
         }
-    
     }
 
     return 0;
-}
-
-void NewFunction()
-{
-    printf("Escolha uma opcao: ");
 }
