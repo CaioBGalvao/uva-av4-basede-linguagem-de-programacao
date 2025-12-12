@@ -10,8 +10,14 @@
 #include "flaviozon.h"
 
 int main()
-{
+{ 
+    Carrinho meuCarrinho;
+    
     int opcao = 0;
+
+    inicializarProdutos();
+
+    inicializarCarrinho(&meuCarrinho);
 
     printf("=====================================\n");
     printf("     Bem-vindo ao Flaviozon!  \n");
@@ -20,13 +26,11 @@ int main()
     while (opcao != 5) // funções
     {
         printf("\nMenu Principal:\n");
-        printf("1 - Comprar Produto\n");
-        printf("2 - Ver Carrinho\n");
-        printf("3 - Calcular Frete\n");
-        printf("4 - Gerar Relatorio\n");
-        printf("5 - Finalizar Pedido\n");
-
-        NewFunction(); // escolha uma opção
+        printf("1 - Listar Produtos\n");
+        printf("2 - Adicionar Carrinho\n");
+        printf("3 - Visualizar Carrinho\n");
+        printf("4 - Finalizar Compra\n");
+        printf("5 - Sair\n");
 
         if (scanf("%d", &opcao) != 1)
         {
@@ -39,7 +43,7 @@ int main()
         switch (opcao)
         {
         case 1:
-            listarprodutos();      // produto.c
+            listarProdutos();      // produto.c
             break;
 
            case 2:
@@ -101,6 +105,7 @@ int main()
             printf("4 - Nordeste\n");
             printf("Digite a opcao: ");
 
+            int regiaoOpcao;
 
              if (scanf("%d", &regiaoOpcao) != 1 || regiaoOpcao < 1 || regiaoOpcao > 4)
             {
