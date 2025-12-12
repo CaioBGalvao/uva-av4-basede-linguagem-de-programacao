@@ -49,8 +49,11 @@ void gerarNotaFiscal(Carrinho c, Regiao regiao, float valorFrete,
   fprintf(arquivo, "ITENS:\n\n");
 
   for (int i = 0; i < c.qtdProdutos; i++) {
-    fprintf(arquivo, "[%03d] %-20s | Qtd: %d | R$ %.2f\n",
+    fprintf(arquivo,
+            "[%03d] %-20s | Peso: %6.2fKg | Unit: R$ %7.2f | Qtd: %d | Total: "
+            "R$ %.2f\n",
             c.itens[i].produto.id, c.itens[i].produto.nome,
+            c.itens[i].produto.peso, c.itens[i].produto.preco,
             c.itens[i].quantidade,
             c.itens[i].produto.preco * c.itens[i].quantidade);
   }
