@@ -33,7 +33,7 @@ Para quem está começando ou precisa relembrar conceitos de C, aqui estão link
 /projeto
 ├── flaviozon.h      # [Contrato] Definições globais, structs e protótipos
 ├── main.c           # [Guardião] Menu principal e fluxo do programa
-├── produtos.c       # [Estoque] Gestão do catálogo de produtos
+├── produto.c        # [Estoque] Gestão do catálogo de produtos
 ├── carrinho.c       # [Compras] Gestão da sacola de compras
 ├── frete.c          # [Logística] Cálculo de custos de envio
 └── relatorio.c      # [Fiscal] Geração de Nota Fiscal e arquivos
@@ -141,7 +141,7 @@ Cada integrante é responsável por implementar um dos módulos abaixo. As assin
 Para compilar o projeto completo, todos os arquivos `.c` devem ser passados para o compilador `gcc`:
 
 ```bash
-gcc main.c produtos.c carrinho.c frete.c relatorio.c -o flaviozon
+gcc main.c produto.c carrinho.c frete.c relatorio.c -o flaviozon
 ```
 
 Para rodar:
@@ -158,3 +158,13 @@ Para rodar:
 
 ---
 *Bom código a todos!*
+
+---
+
+## 👥 Equipe de Desenvolvimento
+
+* **Main**: ANA BEATRIZ DA SILVA PINTO
+* **Produto**: Gabriel Bittencourt
+* **Carrinho**: Wallace Calisto da Silva Santos
+* **Frete**: Guilherme Brazil Nascimento
+* **Relatório**: Caio Barbosa Galvão
