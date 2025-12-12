@@ -3,8 +3,8 @@
  * Objetivo: Menu principal e fluxo de execução do programa.
  *
  * Autoria:
- *   Nome:      [NOME DO ESTUDANTE AQUI]
- *   Matrícula: [MATRICULA AQUI]
+ *   Nome:      ANA BEATRIZ DA SILVA PINTO
+ *   Matrícula:  1250109558
  *   Data:      2025-12-06
  * ========================================================================= */
 #include "flaviozon.h"
