@@ -37,6 +37,7 @@ int main() {
     printf("3 - Visualizar Carrinho\n");
     printf("4 - Finalizar Compra\n");
     printf("5 - Sair\n");
+    printf("Digite uma opção: ");
 
     if (scanf("%d", &opcao) != 1) {
 
@@ -134,6 +135,10 @@ int main() {
         printf("\nCompra cancelada.\n");
       }
     } break;
+
+    case 5:
+      printf("Saindo...\n");
+      break;
 
     default:
       printf("Opcao inválida! Tente novamente.\n");

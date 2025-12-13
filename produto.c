@@ -72,7 +72,7 @@ void inicializarProdutos() {
 //-------------------------------------------------------
 void listarProdutos() {
   printf("\n===== LISTA DE PRODUTOS =====\n");
-  printf("Nome, Preco, Peso (kg)");
+  printf("Nome, Preco, Peso (kg)\n");
 
   for (int i = 0; i < total_produtos; i++) {
     printf("%03d | %s | R$ %8.2f | %8.2f kg\n", catalogo[i].id,
